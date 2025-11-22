@@ -1,9 +1,5 @@
 
-
-import ymlComponents.YMLBoolean;
-import ymlComponents.YMLInteger;
-import ymlComponents.YMLComponent;
-import ymlComponents.YMLGroupHeader;
+import ymlComponents.*;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.regex.*;
@@ -18,6 +14,7 @@ public class YMLReader {
 
 		BufferedReader br = new BufferedReader(new FileReader(file));
 
+		//TODO ADD REGEX SUPPORT FOR TRAILING COMMENTS
 		Pattern pattern = Pattern.compile("([A-Za-z-]+)(:?)\\s*((?:[A-Za-z*]+)|(?:[1-9]\\d*))*");
 
 		ArrayList<YMLComponent> componentsList = new ArrayList<>();
@@ -26,7 +23,10 @@ public class YMLReader {
 		YMLGroupHeader currentHeader = null;
 		while ((line = br.readLine()) != null) {
 
+			//PURE COMMENT LINES
 			if (line.startsWith("#") || line.trim().isEmpty()) {
+				YMLComment comment = new YMLComment(line);
+				componentsList.add(comment);
 				continue;
 			}
 

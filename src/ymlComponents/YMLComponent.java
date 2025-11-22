@@ -2,6 +2,7 @@ package ymlComponents;
 
 public abstract class YMLComponent extends Object{
 
+	//TODO ADD TRAILING COMMENTS
 	private  String name;
 
 	public YMLComponent(String name){
