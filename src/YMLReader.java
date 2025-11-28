@@ -14,14 +14,17 @@ public class YMLReader {
 
 		BufferedReader br = new BufferedReader(new FileReader(file));
 
-		//TODO ADD REGEX SUPPORT FOR TRAILING COMMENTS
-		Pattern pattern = Pattern.compile("([A-Za-z-]+)(:?)\\s*((?:[A-Za-z*]+)|(?:[1-9]\\d*))*");
+		//TODO ADD REGEX SUPPORT FOR TRAILING COMME
+		Pattern pattern = Pattern.compile("([A-Za-z-]+)(:?)\\s*((?:[A-Za-z*]+)|(?:[1-9]\\d*))*\\s*(#.*)?|([A-Za-z-]+)(:?)\\s*((?:[A-Za-z*]+)|(?:[1-9]\\d*))*\\s\n");
 
 		ArrayList<YMLComponent> componentsList = new ArrayList<>();
 
 		String line;
 		YMLGroupHeader currentHeader = null;
 		while ((line = br.readLine()) != null) {
+
+			// LINE EMPTY (EMPTY BLOCKS
+			if(line.isEmpty()){YMLEmpty component = new YMLEmpty(); componentsList.add(component); continue;}
 
 			//PURE COMMENT LINES
 			if (line.startsWith("#") || line.trim().isEmpty()) {
@@ -38,13 +41,14 @@ public class YMLReader {
 				String key = matcher.group(1);
 				String colon = matcher.group(2);
 				String value = matcher.group(3);
+				String trailComment = matcher.group(4);
 
 				if(key == null || colon == null)
 				{continue;}
 
 				//HEADER
 				if(value == null){
-					YMLGroupHeader component = new ymlComponents.YMLGroupHeader(key);
+					YMLGroupHeader component = new ymlComponents.YMLGroupHeader(key, trailComment);
 					componentsList.add(component);
 					addToHeader(component);
 					continue;
@@ -52,7 +56,7 @@ public class YMLReader {
 
 				// BOOLEAN VALUES
 				if (value.equals("true") || value.equals("false")) {
-					YMLBoolean component = new YMLBoolean(key, Boolean.parseBoolean(value));
+					YMLBoolean component = new YMLBoolean(key, Boolean.parseBoolean(value), trailComment);
 					componentsList.add(component);
 					addToHeader(component);
 					continue;
@@ -64,7 +68,7 @@ public class YMLReader {
 					// INT VALUES
 					try {
 						Integer intvalue = Integer.parseInt(value);
-						YMLInteger component = new ymlComponents.YMLInteger(key, intvalue);
+						YMLInteger component = new ymlComponents.YMLInteger(key, intvalue, trailComment);
 						componentsList.add(component);
 						addToHeader(component);
 						continue;
@@ -74,10 +78,9 @@ public class YMLReader {
 					}
 
 					// DOUBLES VALUES
-
 					try {
 						Double doubleValue  = Double.parseDouble(value);
-						ymlComponents.YMLDouble component = new ymlComponents.YMLDouble(key, doubleValue);
+						ymlComponents.YMLDouble component = new ymlComponents.YMLDouble(key, doubleValue, trailComment);
 						componentsList.add(component);
 						addToHeader(component);
 						continue;
