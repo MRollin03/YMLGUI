@@ -21,8 +21,14 @@ public class YMLBoolean extends ymlComponents.YMLComponent {
 
 	@Override
 	public void PrintDebug() {
-		System.out.println("BOOLCOMPONENT: " + getName() + " ,value: " + bool.toString());
+		System.out.println(toString());
 	}
+
+	@Override
+	public String toString() {
+		return "BOOLEAN: "+ getName() + ", value: " + getBool();
+	}
+
 
 	public Boolean getBool() {
 		return bool;

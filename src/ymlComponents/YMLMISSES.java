@@ -13,7 +13,12 @@ public class YMLMISSES  extends YMLComponent{
 
 	@Override
 	public void PrintDebug() {
-			System.out.println("MISS!!: " + getName() + ", Colon " + getColon() + ", value: " + value);
+			System.out.println(toString());
+	}
+
+	@Override
+	public String toString() {
+		return "MISS!!: " + getName() + ", Colon " + getColon() + ", value: " + value;
 	}
 
 	@Override

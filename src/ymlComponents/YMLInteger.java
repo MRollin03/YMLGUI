@@ -12,7 +12,11 @@ public class YMLInteger extends ymlComponents.YMLComponent {
 
 	@Override
 	public void PrintDebug() {
-		System.out.println("INTEGERCOMPONENT: " + getName() + " ,value: " + value);
+		System.out.println(toString());
+	}
+	@Override
+	public String toString() {
+		return "INTEGERCOMPONENT: " + getName() + " ,value: " + value;
 	}
 
 	@Override

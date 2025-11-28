@@ -12,7 +12,12 @@ public class YMLDouble extends ymlComponents.YMLComponent {
 
 	@Override
 	public void PrintDebug() {
-		System.out.println("DOUBLECOMPONENT: " + getName() + " ,value: " + value);
+		System.out.println(toString());
+	}
+
+	@Override
+	public String toString() {
+		return "DOUBLECOMPONENT: " + getName() + " ,value: " + value;
 	}
 
 	@Override

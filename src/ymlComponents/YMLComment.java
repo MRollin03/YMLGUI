@@ -8,4 +8,18 @@ public class YMLComment extends YMLComponent{
 		super(name);
 		this.comment = name;
 	}
+
+	@Override
+	public String toString() {
+		return "COMMENT: "+ getComment();
+	}
+
+	@Override
+	public void PrintDebug() {
+		System.out.print(toString());;
+	}
+
+	public String getComment() {
+		return comment;
+	}
 }
