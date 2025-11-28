@@ -1,7 +1,7 @@
 # YMLGUI
 
 A simple GUI tool to edit and manage YAML files.
-> [!note]
+> [!wip]
 > UNDER DEVELOPMENT (WIP)
 
 ## 🚀 Features
