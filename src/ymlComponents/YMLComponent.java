@@ -15,6 +15,10 @@ public abstract class YMLComponent extends Object{
 		System.out.println("Component Missing PrintDebug Statement!");
 	}
 
+	public String toString(){
+		return "This Component type has not been stringyfied.";
+	}
+
 	public String getName() {
 		return name;
 	}

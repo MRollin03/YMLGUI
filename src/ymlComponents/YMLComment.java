@@ -5,12 +5,7 @@ public class YMLComment extends YMLComponent{
 	public String comment;
 
 	public YMLComment(String name) {
-		super(name, null);
+		super(name);
 		this.comment = name;
-	}
-
-	@Override
-	public void PrintDebug() {
-		System.out.println("COMMENT:");
 	}
 }

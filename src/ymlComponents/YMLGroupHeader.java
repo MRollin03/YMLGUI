@@ -27,6 +27,11 @@ public class YMLGroupHeader extends YMLComponent{
 
 	@Override
 	public void PrintDebug() {
-		System.out.println("HEADER: " + getName() + ",Size: " + componentslist.size());
+		System.out.println(toString());
+	}
+
+	@Override
+	public String toString() {
+		return "HEADER: " + getName() + ",Size: " + componentslist.size();
 	}
 }
