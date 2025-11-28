@@ -8,9 +8,13 @@ fx:controller="gui.controllers.MainController">
     <top>
         <ToolBar>
             <Button text="Open YML" onAction="#onOpenClicked"/>
+             <Pane HBox.hgrow="ALWAYS"/> 
+            <Button fx:id="savebutton" text="Save" onAction="#onSaveClicked"/>
         </ToolBar>
     </top>
     <center>
-        <TextArea fx:id="textArea"/>
+        <ScrollPane fx:id="scrollPane">
+            <VBox fx:id="container" spacing="8" />
+        </ScrollPane>
     </center>
 </BorderPane>

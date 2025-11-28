@@ -4,7 +4,7 @@
 
 .root {
     -fx-font-family: "Segoe UI", "Inter", sans-serif;
-    -fx-background-color: #1e1f22;
+    -fx-background-color: rgb(30, 31, 34);
     -fx-text-fill: #dcdcdc;
 }
 
@@ -53,6 +53,30 @@
 }
 
 .button:pressed {
+    -fx-background-color: #232528;
+}
+
+#savebutton {
+    -fx-background-color: #52a356;
+    -fx-background-radius: 6px;
+    -fx-border-radius: 6px;
+    -fx-border-color: #44474c;
+    -fx-border-width: 1;
+    -fx-text-fill: #e0e0e0;
+    -fx-padding: 6px 14px;
+    -fx-font-size: 14px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.35), 4, 0, 0, 1);
+    -fx-cursor: hand;
+    -;
+}
+
+#savebutton:hover {
+    -fx-background-color: #3a3d42;
+    -fx-border-color: color-accent;
+    -fx-text-fill: color-accent;
+}
+
+#savebutton:pressed {
     -fx-background-color: #232528;
 }
 
@@ -106,4 +130,13 @@
 .label {
     -fx-text-fill: #dcdcdc;
 }
+
+.scroll-pane {
+    -fx-background-color:  rgb(30, 31, 34)
+}
+
+.scroll-pane > .viewport {
+    -fx-background-color:  rgb(40, 41, 45)
+}
+
 
