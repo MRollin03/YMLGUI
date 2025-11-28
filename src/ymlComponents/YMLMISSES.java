@@ -5,8 +5,14 @@ public class YMLMISSES  extends YMLComponent{
 	private String value;
 	private String colon;
 
+	public YMLMISSES(String label, String colon, String value, String trailComment){
+		super(label, trailComment);
+		this.value = value;
+		this.colon = colon;
+	}
+
 	public YMLMISSES(String label, String colon, String value){
-		super(label);
+		super(label, null);
 		this.value = value;
 		this.colon = colon;
 	}

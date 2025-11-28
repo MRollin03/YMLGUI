@@ -5,7 +5,12 @@ public class YMLDouble extends ymlComponents.YMLComponent {
 	private Double value;
 
 	public YMLDouble(String name, Double value){
-		super(name);
+		super(name, null);
+		this.value = value;
+
+	}
+	public YMLDouble(String name, Double value, String trailingComment){
+		super(name, trailingComment);
 		this.value = value;
 
 	}

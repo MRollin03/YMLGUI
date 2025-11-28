@@ -5,7 +5,13 @@ public class YMLInteger extends ymlComponents.YMLComponent {
 	private int value;
 
 	public YMLInteger(String name, Integer value){
-		super(name);
+		super(name, null);
+		this.value = value;
+
+	}
+
+	public YMLInteger(String name, Integer value, String trailingCommnet){
+		super(name, trailingCommnet);
 		this.value = value;
 
 	}

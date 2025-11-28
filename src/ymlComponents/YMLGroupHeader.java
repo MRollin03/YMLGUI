@@ -4,9 +4,15 @@ import java.util.ArrayList;
 public class YMLGroupHeader extends YMLComponent{
 
 	public ArrayList<YMLComponent> componentslist;
+	public YMLGroupHeader(String label, String trailComment)
+	{
+		super(label, trailComment);
+		componentslist = new java.util.ArrayList<ymlComponents.YMLComponent>();
+	}
+
 	public YMLGroupHeader(String label)
 	{
-		super(label);
+		super(label, null);
 		componentslist = new java.util.ArrayList<ymlComponents.YMLComponent>();
 	}
 

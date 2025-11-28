@@ -5,7 +5,12 @@ public class YMLBoolean extends ymlComponents.YMLComponent {
 	private Boolean bool;
 
 	public YMLBoolean(String name, Boolean bool) {
-		super(name);
+		super(name, null);
+		this.bool = bool;
+	}
+
+	public YMLBoolean(String name, Boolean bool, String trailingComment) {
+		super(name, trailingComment);
 		this.bool = bool;
 	}
 
